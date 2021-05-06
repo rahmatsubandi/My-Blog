@@ -24,12 +24,8 @@ export const Footer = () => {
             align="center"
             mb={4}
             direction="column"
-            //   visibility={("hidden", "visible", "visible")}
-            //   display={["none", "flex", "flex"]}
-            position="fixed"
-            bottom="0"
-            left="0"
-            right="0"
+            visibility={("hidden", "visible", "visible")}
+            display={["none", "flex", "flex"]}
         >
             <div>
                 <Link href="https://instagram.com/rhmtin" title="Instagram" isExternal>
