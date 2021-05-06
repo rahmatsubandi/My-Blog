@@ -1,12 +1,15 @@
 import React from "react";
 import { useColorMode, Button, Flex, Box } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 import styled from "@emotion/styled";
 
 import DarkModeSwitch from "../components/DarkModeSwitch";
+import { Footer } from "../components/Footer";
 
 const Container = ({ children }) => {
   const { colorMode } = useColorMode();
+  const router = useRouter();
 
   const bgColor = {
     light: "white",
@@ -53,6 +56,9 @@ const Container = ({ children }) => {
             <Button
               as="a"
               variant="ghost"
+              backgroundColor={
+                router.pathname === "/" ? navHoverBg[colorMode] : null
+              }
               p={[1, 2, 4]}
               _hover={{ backgroundColor: navHoverBg[colorMode] }}
             >
@@ -63,6 +69,10 @@ const Container = ({ children }) => {
             <Button
               as="a"
               variant="ghost"
+              _hover={{ backgroundColor: navHoverBg[colorMode] }}
+              backgroundColor={
+                router.pathname.includes("/blog") ? navHoverBg[colorMode] : null
+              }
               p={[1, 2, 4]}
               _hover={{ backgroundColor: navHoverBg[colorMode] }}
             >
@@ -82,6 +92,7 @@ const Container = ({ children }) => {
         mt={[4, 8, 8]}
       >
         {children}
+        <Footer />
       </Flex>
     </>
   );

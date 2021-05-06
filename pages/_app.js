@@ -6,13 +6,16 @@ import {
 } from "@chakra-ui/react";
 import customTheme from "../styles/theme";
 import { Global, css } from "@emotion/react";
+import { prismLightTheme, prismDarkTheme } from "../styles/prism";
 
 const GlobalStyle = ({ children }) => {
   const { colorMode } = useColorMode();
+
   return (
     <>
       <Global
         styles={css`
+          ${colorMode === "light" ? prismLightTheme : prismDarkTheme};
           ::selection {
             background-color: #90cdf4;
             color: #fefefe;

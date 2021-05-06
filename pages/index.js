@@ -19,7 +19,7 @@ export default function Index() {
         spacing={8}
         justifyContent="center"
         alignItems="flex-start"
-        margin="0 auto 4rem auto"
+        m="0 auto 4rem auto"
         maxWidth="700px"
         px={2}
       >
@@ -29,8 +29,8 @@ export default function Index() {
           alignItems="flex-start"
           maxWidth="700px"
         >
-          <Heading mb={3}>Say Hi! I'm Rahmat Subandi</Heading>
-          <Text color={colorSecondary[colorMode]}>Hello, World!</Text>
+          <Heading mb={2}>Hi, I'm Rahmat Subandi</Heading>
+          <Text color={colorSecondary[colorMode]}>Halo, Dunia!</Text>
         </Flex>
       </Stack>
     </Container>
