@@ -1,12 +1,12 @@
-import React from "react";
+import { Flex, IconButton, Link, useColorMode } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { Flex, Link, IconButton, useColorMode } from "@chakra-ui/react";
+import React from "react";
 import {
   FiGithub,
   FiInstagram,
   FiLinkedin,
-  FiYoutube,
   FiMail,
+  FiYoutube,
 } from "react-icons/fi";
 
 export const Footer = () => {
