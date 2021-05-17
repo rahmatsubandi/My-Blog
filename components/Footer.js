@@ -1,4 +1,4 @@
-import {Flex, IconButton, Link, useColorMode} from "@chakra-ui/react";
+import { Flex, IconButton, Link, useColorMode } from "@chakra-ui/react";
 import NextLink from "next/link";
 import React from "react";
 import {
