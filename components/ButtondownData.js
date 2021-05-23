@@ -1,7 +1,8 @@
+import format from "comma-number";
 import React from "react";
 import useSWR from "swr";
+
 import fetcher from "../lib/fetcher";
-import format from "comma-number";
 
 import StatBox from "./StatBox";
 
