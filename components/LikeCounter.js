@@ -1,11 +1,11 @@
-import {Button, ButtonGroup, useToast} from "@chakra-ui/react";
+import { Button, ButtonGroup, useToast } from "@chakra-ui/react";
 import format from "comma-number";
-import {useEffect, useState} from "react";
-import {BiLike} from "react-icons/bi";
+import { useEffect, useState } from "react";
+import { BiLike } from "react-icons/bi";
 
 import loadDb from "../lib/db";
 
-const LikeCounter = ({id}) => {
+const LikeCounter = ({ id }) => {
   const [likes, setLikes] = useState("");
   const [loading, setLoading] = useState(false);
   const [liked, setLiked] = useState(false);
