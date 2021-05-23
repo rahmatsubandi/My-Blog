@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Head from "next/head";
 import { parseISO, format } from "date-fns";
 import {
   useColorMode,
@@ -9,10 +8,14 @@ import {
   Stack,
   Avatar,
   Box,
+  Image,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 import Container from "../components/Container";
+import ViewCounter from "../components/ViewCounter";
+import LikeCounter from "../components/LikeCounter";
+import BlogSeo from "../components/blog/BlogSeo";
 
 export default function BlogLayout({ children, frontMatter }) {
   const { colorMode } = useColorMode();
@@ -52,9 +55,10 @@ export default function BlogLayout({ children, frontMatter }) {
         w={`${width}%`}
       ></Box>
       <Container>
-        <Head>
-          <title>Blog - {slug}</title>
-        </Head>
+        <BlogSeo
+          url={`https://rahmatsubandi.me/blog${slug}`}
+          {...frontMatter}
+        />
         <Stack
           as="article"
           spacing={8}
@@ -98,8 +102,15 @@ export default function BlogLayout({ children, frontMatter }) {
               </Flex>
               <Text fontSize="sm" color="gray.500" minWidth="100px" mt={[2, 0]}>
                 {frontMatter.readingTime.text}
+                {` • `}
+                <ViewCounter id={slug} />
+                {` • `}
+                <LikeCounter id={slug} />
               </Text>
             </Flex>
+            {frontMatter.Image != "" ? (
+              <Image src={frontMatter.image} alt={frontMatter.alt} />
+            ) : null}
           </Flex>
           {children}
         </Stack>

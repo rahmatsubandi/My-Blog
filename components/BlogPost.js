@@ -1,6 +1,9 @@
 import React from "react";
 import NextLink from "next/link";
 import { useColorMode, Heading, Text, Flex, Box, Link } from "@chakra-ui/react";
+import fetcher from "../lib/fetcher";
+import useSWR from "swr";
+import * as formatNum from "comma-number";
 import { parseISO, format } from "date-fns";
 
 const BlogPost = ({ title, publishedAt, summary, slug }) => {
@@ -9,6 +12,9 @@ const BlogPost = ({ title, publishedAt, summary, slug }) => {
     light: "gray.700",
     dark: "gray.400",
   };
+
+  const { data } = useSWR(`/api/page-views?id=${slug}`, fetcher);
+  const views = data?.total;
 
   return (
     <NextLink href={`blog/${slug}`} passHref>
@@ -31,6 +37,14 @@ const BlogPost = ({ title, publishedAt, summary, slug }) => {
               </Heading>
             </Flex>
 
+            <Text
+              color="gray.500"
+              minWidth="140px"
+              textAlign={["left", "right"]}
+              mb={[4, 0]}
+            >
+              {`${views ? formatNum(views) : "–––"} views`}
+            </Text>
             <Text
               color="gray.500"
               minWidth="140px"
