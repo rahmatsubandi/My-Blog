@@ -1,5 +1,5 @@
+import { ArticleJsonLd, NextSeo } from "next-seo";
 import React from "react";
-import { NextSeo, ArticleJsonLd } from "next-seo";
 
 const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
   const date = new Date(publishedAt).toISOString();
@@ -31,7 +31,8 @@ const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
         datePublished={date}
         description={summary}
         images={[featuredImage]}
-        publisherLogo="/static/favicon.ico"
+        publisherLogo="/static /
+      favicon.ico "
         publisherName="Rahmat Subandi"
         title={title}
         url={url}
