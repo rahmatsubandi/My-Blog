@@ -1,9 +1,9 @@
 import format from "comma-number";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 import loadDb from "../lib/db";
 
-const ViewCounter = ({id}) => {
+const ViewCounter = ({ id }) => {
   const [views, setViews] = useState("");
 
   useEffect(() => {
@@ -22,14 +22,14 @@ const ViewCounter = ({id}) => {
         db.ref("views").child(id).off("value", onViews);
       }
     };
-  }, [ id ]);
+  }, [id]);
 
   useEffect(() => {
     const registerView = () =>
-        fetch(`/api/increment-views?id=${encodeURIComponent(id)}`);
+      fetch(`/api/increment-views?id=${encodeURIComponent(id)}`);
 
     registerView();
-  }, [ id ]);
+  }, [id]);
 
   return `${views ? format(views) : "–––"} views`;
 };

@@ -4,8 +4,9 @@ export default (req, res) => {
   if (!req.query.id) {
     return db.ref("likes").once("value", (snapshot) => {
       const likes = snapshot.val();
-      const allLikes =
-          Object.values(likes).reduce((total, value) => total + value);
+      const allLikes = Object.values(likes).reduce(
+        (total, value) => total + value
+      );
 
       // return res.status(200).json({
       //     total: allLikes
@@ -17,7 +18,7 @@ export default (req, res) => {
 
   return ref.once("value", (snapshot) => {
     res.status(200).json({
-      total : snapshot.val(),
+      total: snapshot.val(),
     });
   });
 };

@@ -4,11 +4,12 @@ export default (req, res) => {
   if (!req.query.id) {
     return db.ref("views").once("value", (snapshot) => {
       const views = snapshot.val();
-      const allViews =
-          Object.values(views).reduce((total, value) => total + value);
+      const allViews = Object.values(views).reduce(
+        (total, value) => total + value
+      );
 
       return res.status(200).json({
-        total : allViews,
+        total: allViews,
       });
     });
   }
@@ -17,7 +18,7 @@ export default (req, res) => {
 
   return ref.once("value", (snapshot) => {
     res.status(200).json({
-      total : snapshot.val(),
+      total: snapshot.val(),
     });
   });
 };
